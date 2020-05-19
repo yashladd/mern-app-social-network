@@ -74,7 +74,7 @@ router.post(
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
     if (skills) {
-      profileFields.skills = skills.split(',').map((skill) => skill.trim());
+      profileFields.skills = skills.split(',').map(skill => skill.trim());
     }
 
     //build social object
@@ -83,6 +83,7 @@ router.post(
     if (twitter) profileFields.social.twitter = twitter;
     if (linkedin) profileFields.social.linkedin = linkedin;
     if (facebook) profileFields.social.facebook = facebook;
+    if (instagram) profileFields.social.instagram = instagram;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -244,7 +245,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 
     //get remove idx
     const removeIdx = profile.experience
-      .map((item) => item.id)
+      .map(item => item.id)
       .indexOf(req.params.exp_id);
 
     profile.experience.splice(removeIdx, 1);
@@ -320,7 +321,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 
     //get remove idx
     const removeIdx = profile.education
-      .map((item) => item.id)
+      .map(item => item.id)
       .indexOf(req.params.edu_id);
 
     profile.education.splice(removeIdx, 1);
