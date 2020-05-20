@@ -8,7 +8,7 @@ import ProfileItem from './ProfileItem';
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
   return (
     <Fragment>
       {console.log(loading)}
@@ -36,7 +36,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   );
 };
 
-ProfileItem.propTypes = {
+Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
 };

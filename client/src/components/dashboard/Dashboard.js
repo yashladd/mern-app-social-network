@@ -16,7 +16,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrProfile();
-  }, []);
+  }, [getCurrProfile]);
 
   return loading && profile === null ? (
     <Spinner />
